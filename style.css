@@ -1,0 +1,584 @@
+@charset "utf-8";
+
+
+html {
+    font-family: "Open Sans", "Zen Kaku Gothic New", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ベースの本文（ご要望の最小12px〜最大16pxの範囲で変化） */
+p {
+    /* 0.75rem (12px) から 1.0rem (16px) の間でスケール */
+    font-size: clamp(0.75rem, calc(0.75vw + 0.75rem), 1.0rem);
+    line-height: 1.8;
+    width: fit-content;
+    /* 12pxが小さいため、行間を広めにして可読性を確保 */
+}
+
+/* キャプション、注釈、小さなメタ情報など */
+.caption {
+    /* 0.625rem (10px) から 0.875rem (14px) の間でスケール */
+    font-size: clamp(0.625rem, calc(0.5vw + 0.5rem), 0.875rem);
+    color: #666;
+
+    /* 色を薄くすると、さらに階層感が強調されます */
+}
+
+address {
+    /* 0.625rem (8px) から 0.875rem (12px) の間でスケール */
+    font-size: clamp(0.5rem, calc(0.5vw + 0.3rem), 0.75rem);
+    color: #666;
+    /* 色を薄くすると、さらに階層感が強調されます */
+}
+
+/* 見出し2（セクションタイトル） */
+h2 {
+    /* 1.25rem (20px) から 2.0rem (32px) の間でスケール */
+    font-size: clamp(1.25rem, calc(2vw + 1.0rem), 2.0rem);
+    line-height: 1.4;
+    padding-left: 5px;
+}
+
+/* 見出し1（メインタイトル） */
+h1 {
+    /* 1.75rem (28px) から 3.25rem (52px) の間でスケール */
+    font-size: clamp(1.75rem, calc(5vw + 1.0rem), 3.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+
+    /* 字間を少し詰めて、モダンでおしゃれな印象に */
+}
+
+
+/* style.css の適切な箇所 (例: .works の定義の近く) に追加 */
+
+/* 共通の初期状態：非表示で下へ50px移動（.profile を追加） */
+.works,
+.design .flex .flex .works_design,
+.profile,
+.img-area {
+    /* ★ .profile を追加 ★ */
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* 共通のアニメーション後の状態：完全に表示され、元の位置へ（.profile を追加） */
+.works.is-visible,
+.design .flex .flex .works_design.is-visible,
+.profile.is-visible,
+.img-area.is-visible {
+    /* ★ .profile.is-visible を追加 ★ */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sitewrap {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding-inline: 15px;
+}
+
+header nav {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    right: 0;
+    background-color: #ffffffab;
+    z-index: 999;
+    transition: background-color 0.3s ease, height 0.3s ease;
+}
+
+header nav.is-scrolled {
+    background-color: #ffffffab;
+    height: 60px;
+}
+
+header nav ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    align-items: center;
+    margin-left: auto;
+}
+
+
+header nav ul li a p {
+    padding-inline: 10px;
+    position: relative;
+}
+
+
+header nav ul li a p::after {
+    content: "";
+    height: 1px;
+    width: 0;
+    background-color: #d0d0d0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s;
+}
+
+header nav ul li a p:hover::after {
+    width: 100%;
+
+}
+
+header .firstview {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 60px;
+    align-items: center;
+    gap: 40px;
+    height: 100vh;
+}
+
+header .firstview .header_img {
+    width: 70%;
+    height: calc(100vh - 160px);
+    background: linear-gradient(225deg, #82cde0 0.000%, rgba(149, 201, 222, 1.000) 16.667%, rgba(174, 200, 216, 1.000) 33.333%, rgba(202, 201, 208, 1.000) 50.000%, rgba(232, 206, 199, 1.000) 66.667%, rgba(255, 213, 194, 1.000) 83.333%, rgba(255, 221, 192, 1.000) 100.000%)
+}
+
+.web>.flex>div,
+.marketing>.flex>div {
+    flex-grow: 1;
+}
+
+
+
+.works {
+    display: flex;
+    padding-bottom: 80px;
+    padding-top: 20px;
+    padding-inline: 20px;
+    width: 100%;
+}
+
+.works .works_desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.project_img a {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+    overflow: hidden;
+}
+
+.project_img img {
+    height: auto;
+    transition: transform .6s ease;
+}
+
+.project_img:hover img {
+    transform: scale(1.05);
+}
+
+.works_title {
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 35px;
+}
+
+.works_title::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 30px solid rgb(249, 201, 179);
+    border-right: 30px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0px;
+
+}
+
+.web>.flex>div>div:nth-of-type(2) .works_title::after {
+    border-top: 30px solid #c8d8db;
+    /* 水色に変更 */
+    /* その他、共通の設定はそのまま継承または上書き */
+}
+
+.border_box {
+    background: url(img/borderbox01.png) no-repeat left top/cover;
+    width: 50px;
+    height: auto;
+    margin-bottom: 80px;
+    margin-right: 20px;
+}
+
+
+.web>.flex>div>div:nth-of-type(2) .border_box {
+    background: url(img/borderbox02.png) repeat-y top center/300%;
+}
+
+
+.marketing>.flex>div:first-child .border_box {
+    background: url(img/borderbox03.png) repeat-y top center/cover;
+}
+
+.marketing>.flex>div:first-child .works_title::after {
+    border-top: 30px solid #bfe2cd;
+}
+
+.profile {
+    display: flex;
+    gap: 5vw;
+    padding-inline: 20px;
+}
+
+
+
+.sec_title {
+    padding: 60px 0 60px 60px;
+    margin-bottom: 60px;
+    position: relative;
+
+}
+
+.sec_title::before {
+    content: "";
+    height: 100%;
+    width: 40px;
+    background: linear-gradient(225deg, rgba(130, 205, 224, 1.000) 0.000%, rgba(149, 201, 222, 1.000) 16.667%, rgba(174, 200, 216, 1.000) 33.333%, rgba(202, 201, 208, 1.000) 50.000%, rgba(232, 206, 199, 1.000) 66.667%, rgba(255, 213, 194, 1.000) 83.333%, rgba(255, 221, 192, 1.000) 100.000%);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.web,
+.design,
+.marketing {
+    width: 100%;
+    border-top: 1px solid #d0d0d0;
+    padding-top: 20px;
+}
+
+#projects,
+#about {
+    margin-bottom: 60px;
+    scroll-margin-top: 80px;
+}
+
+#projects .sticky-title {
+    writing-mode: vertical-rl;
+    letter-spacing: .02em;
+    /* margin-left: auto; */
+    position: sticky;
+    /* スティッキーな位置付けを設定 */
+    top: 60px;
+    /* 画面上端から80pxの位置で固定を開始・維持 */
+    z-index: 10;
+    height: fit-content;
+}
+
+
+.works {
+    gap: 10vw;
+}
+
+#projects .flex div div:nth-child(even) .works {
+    flex-direction: row-reverse;
+}
+
+#projects .flex div div:nth-child(even) .works .project_img {
+    flex-grow: 0;
+}
+
+#projects .flex div div:nth-child(even) .works .works_desc {
+    flex-grow: 0;
+}
+
+#projects .flex div div:nth-child(even) .border_box {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+
+
+.flex {
+    display: flex;
+}
+
+.works .works_desc a {
+    width: fit-content;
+    border: 1px solid #d0d0d0;
+    padding: 0.5em 2em;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: 0.3s;
+    margin-top: 50px;
+}
+
+.works_design .btn_frame {
+    margin-top: 0px;
+    height: fit-content;
+    width: fit-content;
+    border: 1px solid #d0d0d0;
+    padding: 0.5em 2em;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: 0.3s;
+    align-self:center;
+    margin-right: 20px;
+}
+
+.btn {
+    font-size: clamp(0.625rem, calc(0.5vw + 0.5rem), 0.875rem);
+}
+
+.works .works_desc a:hover ,
+.works_design .btn_frame:hover{
+    transform: translateY(-5px);
+}
+
+
+.design .flex .flex {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.design .flex .flex .works_design {
+    /* max-width: 500px; */
+    padding-block: 0px 40px;
+}
+
+.design_works_area {
+    width: 100%;
+    margin: 20px 20px 40px 20px;
+}
+
+.img-area {
+    background-color: #d7d5dd;
+    padding: 20px 20px 40px 20px;
+}
+
+.img-area .flex {
+    padding-top: 20px;
+    justify-content: space-between;
+    gap: 20px;
+
+}
+
+.img-area .flex .img img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.design .flex .flex .works_design .under_bar {
+    position: relative;
+    padding-block: 5px 2px;
+    margin-bottom: 5px;
+    /* display: inline-block; */
+}
+
+.design .flex .flex .works_design .under_bar::after {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 1.5px;
+    background-image: linear-gradient(to right,
+            /* 左から右へ */
+            #d0d0d0 0%,
+            /* 最初の色（赤）を0%から開始 */
+            #d0d0d0 70%,
+            /* 最初の色（赤）を50%で停止 */
+            #f9c9b3 70%,
+            /* 2番目の色（青）を50%から開始 (色が変わるポイント) */
+            #f9c9b3 100%
+            /* 2番目の色（青）を100%まで続ける */
+        );
+    bottom: 0;
+    left: 0;
+}
+
+
+
+.profile div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    max-width: 500px;
+    letter-spacing: 0.05em;
+    line-height: 1.7;
+}
+
+footer {
+    text-align: right;
+    padding-block: 10px;
+}
+
+@media screen and (max-width:1200px) {
+
+
+
+    .design .flex .flex .works_design {
+        width: 48%;
+    }
+
+    .design .flex .flex .works_design .project_img img {
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+@media screen and (max-width:1024px) {
+
+
+    .works {
+        gap: 5vw;
+    }
+
+.design_works_area .flex .works_design >.flex{
+    display: block;
+}
+
+.works_design .btn_frame{
+    margin-right: 0px;
+    margin-top: 5px;
+    width: 100%;
+    justify-content: center;
+}
+
+}
+
+@media screen and (max-width:992px) {
+
+    .works {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .works .works_desc {
+        display: flex;
+        flex-direction: row;
+        gap: 3vw;
+        align-items: center;
+
+    }
+
+    #projects .flex div div:nth-child(even) .works {
+        flex-direction: column;
+    }
+
+    .works .works_desc a {
+        margin-top: 0;
+        height: fit-content;
+    }
+
+    .border_box,
+    .marketing>.flex>div:first-child .border_box {
+        background-size: 300%;
+        background-repeat: repeat-y;
+    }
+
+
+}
+
+@media screen and (max-width:767px) {
+
+    .design .flex .flex {
+        display: block;
+    }
+
+    .design .flex .flex .works_design {
+        width: 100%;
+    }
+
+    .profile {
+        display: block;
+    }
+
+    .profile img {
+        width: 100%;
+        height: auto;
+    }
+
+    .project_img img {
+        width: 100%;
+    }
+
+    .img-area .flex div:nth-child(2) {
+        padding-top: 20px;
+    }
+
+
+    .design_works_area .flex .works_design >.flex{
+    display: flex;
+}
+
+.works_design .btn_frame{
+    margin-right: 20px;
+    margin-top: 0px;
+    width: fit-content;
+    justify-content: center;
+}
+}
+
+@media screen and (max-width:600px) {
+
+    .works .works_desc {
+        display: block;
+
+    }
+
+    .works {
+        align-items: flex-start;
+        padding-block: 20px 40px;
+    }
+
+    /* p {
+    width: 100%;
+    } */
+
+    .works .works_desc {
+        width: 100%;
+    }
+
+    .works .works_desc a {
+        justify-content: center;
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .border_box {
+        display: none;
+    }
+
+    .design .flex .flex .works_design {
+        padding-block: 20px 40px;
+    }
+
+    .pc_br {
+        display: none;
+    }
+
+    .profile div {
+        gap: 5px;
+        padding-top: 5px;
+    }
+
+
+        .design_works_area .flex .works_design >.flex{
+    display: block;
+}
+
+.works_design .btn_frame{
+    margin-right: 0px;
+    margin-top: 5px;
+    width: 100%;
+}
+}
