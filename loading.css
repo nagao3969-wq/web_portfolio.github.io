@@ -1,0 +1,66 @@
+/* loading.css */
+
+#loader-wrapper, #loader-wrapper * {
+    box-sizing: border-box;
+}
+
+/* 画面全体を覆い、白い背景、最前面、中央寄せ、フェードアウト設定 */
+#loader-wrapper {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    
+    background-color: #ffffff; /* 白い背景 */
+    
+    /* アニメーションを画面中央に配置 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* フェードアウト用の設定 */
+    opacity: 1; 
+    transition: opacity 0.5s ease-out; /* JavaScriptの500msと合わせる */
+}
+
+/* アニメーション要素（中央に配置される） */
+#loader-wrapper .loader {
+    height: 50px;
+    width: 50px;
+    /* 既存のアニメーション設定 */
+    border: 4px solid #f9b3b3;
+    animation: fulfilling-square-spinner-animation 3s infinite ease;
+    display: block; /* 中央寄せのため inline-blockから変更 */
+}
+
+/* 内側の要素の高さアニメーション */
+#loader-wrapper .loader::before { /* .loader の中身を埋めるアニメーションは疑似要素に分離することを推奨 */
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%; /* 初期高さ */
+    background-color: #f9b3b3;
+    animation: fulfilling-square-spinner-inner-animation 3s infinite ease-in;
+}
+
+
+/* @keyframes は変更なし */
+@keyframes fulfilling-square-spinner-animation {
+    /* ... 既存の回転アニメーション ... */
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(180deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fulfilling-square-spinner-inner-animation {
+    /* ... 既存の高さ変化アニメーション ... */
+    0% { height: 0%; }
+    25% { height: 0%; }
+    50% { height: 100%; }
+    75% { height: 100%; }
+    100% { height: 0%; }
+}
