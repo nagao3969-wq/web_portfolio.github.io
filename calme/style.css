@@ -1,0 +1,1055 @@
+:root {
+  --max: 1140px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  font-family: "Zen Kaku Gothic New", "Montserrat", sans-serif;
+  color: #2C2F48;
+  line-height: 1.7;
+}
+
+h1 {
+  /* clampの最大値で固定 */
+  font-size: 3rem;
+}
+
+h2 {
+  /* clampの最大値で固定 */
+  font-size: 2rem;
+}
+
+h3 {
+  /* clampの最大値で固定 */
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+h4,
+.faq__btn,
+.btn {
+  /* clampの最大値で固定 */
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.sp_br {
+  display: none;
+}
+
+main .hero {
+  height: 100vh;
+  background-image: url(img/cosme_svg/01.svg), url(img/firstview.jpg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom center, right 80%;
+  background-size: auto, cover;
+  color: white;
+  padding-top: 30px;
+}
+
+.btn_primary {
+  margin-bottom: 10px;
+}
+
+
+main .hero .icon {
+  margin-bottom: 130px;
+}
+
+
+.hero_lead {
+  padding-bottom: 60px;
+}
+
+main .concept {
+  background-image: url(img/cosme_svg/02.svg), linear-gradient(#A4A2CA, #A6C1EE);
+  background-repeat: no-repeat;
+  background-position: bottom center, center;
+  background-size: cover, cover;
+  color: #2C2F48;
+  text-align: center;
+  padding-block: 50px 320px;
+}
+
+main .concept .container h4 {
+  margin-bottom: 20px;
+}
+
+.sec_title {
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 4rem;
+  background-image: linear-gradient(to bottom, #777FC0, #BCC1EA);
+  /* 2. 背景のグラデーションを文字の形に合わせてクリップ（切り抜く） */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* 3. 文字の色自体を完全に透明にする */
+  color: transparent;
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 15px;
+  line-height: 1.4;
+}
+
+.sec_title::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  background-image: linear-gradient(to bottom, #777FC0, #BCC1EA);
+  left: -20px;
+}
+
+.sec_title::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  background-image: linear-gradient(to bottom, #777FC0, #BCC1EA);
+  right: -20px;
+}
+
+.number {
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 4rem;
+  line-height: 1.4;
+}
+
+.first {
+  color: #CFD9E9;
+}
+
+.second {
+  color: #BDD4FC;
+}
+
+.third {
+  color: #A6C1EE;
+}
+
+
+.products,
+.reviews {
+  background-color: #F5EFE3;
+  overflow: hidden;
+}
+
+.products {
+  background-image: url(img/cosme_svg/03.svg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  padding-bottom: 150px;
+}
+
+main .products .feature {
+  padding-bottom: 120px;
+}
+
+.feature_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mb70 {
+  margin-bottom: 70px;
+}
+
+.products article:nth-child(odd) .feature_content {
+  flex-direction: row-reverse;
+}
+
+.feature_text {
+  position: relative;
+  z-index: 10;
+}
+
+.feature__media img {
+  border-radius: 200px;
+
+}
+
+.feature__media {
+  z-index: 10;
+}
+
+.products article:nth-of-type(3) .feature_text::before,
+.products article:nth-of-type(2) .feature_text::before,
+.products article:nth-of-type(1) .feature_text::before {
+  content: "";
+  /* 3つ目の雲の画像（仮） */
+  display: block;
+  position: absolute;
+  background-size: contain;
+  /* サイズ調整 */
+  background-repeat: no-repeat;
+  background-position: center;
+  /* 配置調整 */
+
+  z-index: -1;
+}
+
+.products article:nth-of-type(1) .feature_text,
+.products article:nth-of-type(3) .feature_text {
+  padding-left: 80px;
+}
+
+.products article:nth-of-type(2) .feature_text,
+.features .feature_text {
+  padding-right: 80px;
+}
+
+.products article:nth-of-type(1) .feature_text::before {
+  height: 220px;
+  width: 540px;
+  background-image: url(img/cloud/cloud01.png);
+  bottom: -40px;
+  left: -310px;
+}
+
+.products article:nth-of-type(2) .feature_text::before {
+  height: 220px;
+  width: 540px;
+  background-image: url(img/cloud/cloud02.png);
+  bottom: -20px;
+  right: -190px;
+}
+
+.products article:nth-of-type(3) .feature_text::before {
+  height: 210px;
+  width: 360px;
+  background-image: url(img/cloud/cloud03.png);
+  bottom: -40px;
+  left: -150px;
+}
+
+
+
+.feature_desc {
+  padding-left: 1em;
+}
+
+.feature_title {
+  margin-bottom: 0.4em;
+  padding-left: 0.5em;
+}
+
+.line {
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 1px;
+  background: #2C2F48;
+  position: relative;
+}
+
+.line::before,
+.line::after {
+  content: "";
+  background: #2C2F48;
+  border-radius: 50%;
+  height: 4px;
+  width: 4px;
+  bottom: 0;
+  transform: translateY(50%);
+  position: absolute;
+}
+
+.line::after {
+  right: 0;
+  transform: translateY(50%);
+}
+
+
+.deep,
+.deep::after,
+.deep::before {
+  background-image: linear-gradient(to bottom, #2C2F48, #777FC0);
+}
+
+
+.usage {
+  background: linear-gradient(to bottom, #A6C1EE, #A389AE);
+  padding-top: 80px;
+}
+
+.usage .cards {
+  justify-content: space-between;
+  text-align: center;
+  padding-bottom: 200px;
+}
+
+.cards {
+  display: flex;
+}
+
+.usage h3 {
+  margin-bottom: 60px;
+}
+
+.card img {
+  border-radius: 175px 175px 0 0;
+}
+
+.card_bg {
+  background-color: #F5EFE3;
+  padding-block: 20px 40px;
+}
+
+.reviews {
+  padding-block: 80px 300px;
+  background-image: url(img/cosme_svg/04.svg);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: contain;
+  overflow: hidden;
+}
+
+.reviews__list {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  position: relative;
+}
+
+.review {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.review:nth-child(even) {
+  align-self: flex-end;
+}
+
+
+.review:nth-of-type(1) {
+  background-image: url(img/comment/comment1.png);
+  width: 580px;
+  height: 270px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 150px 150px 0 140px;
+}
+
+
+.review:nth-of-type(2) {
+  background-image: url(img/comment/comment02.png);
+  width: 600px;
+  height: 280px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 150px 0 0 200px;
+  position: relative;
+  z-index: auto;
+}
+
+.review:nth-of-type(2)::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 160px;
+  background-image: url(img/cloud/cloud03.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: -170px;
+  left: 320px;
+  z-index: -1;
+}
+
+.review:nth-of-type(3) {
+  background-image: url(img/comment/comment03.png);
+  width: 510px;
+  height: 280px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 140px 0 0 140px;
+}
+
+.reviews .container {
+  position: relative;
+}
+
+.reviews .container::before {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 160px;
+  background-image: url(img/cloud/cloud02.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 510px;
+  left: -130px;
+  z-index: 0;
+}
+
+.reviews .container::after {
+  content: "";
+  position: absolute;
+  width: 490px;
+  height: 190px;
+  background-image: url(img/cloud/cloud01.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: 30px;
+  right: -50px;
+  z-index: 0;
+}
+
+.features {
+  background-image: linear-gradient(to bottom, #B69BC8, #8277A2);
+  padding-top: 80px;
+}
+
+ul li {
+  margin-left: 1em;
+}
+
+.features .feature_content {
+  flex-direction: row-reverse;
+  padding-block: 75px 150px;
+}
+
+.targets {
+  background-color: #F5EFE3;
+  background-image: url(img/cosme_svg/05.svg);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: contain;
+  padding-block: 50px;
+}
+
+.targets h4 {
+  text-align: center;
+}
+
+.targets .cards {
+  justify-content: space-between;
+  padding-block: 60px 150px;
+  width: 100%;
+  text-align: center;
+}
+
+.target {
+  padding: 30px;
+  position: relative;
+}
+
+.target img {
+  margin: 0 auto 20px auto;
+}
+
+
+.target::before,
+.target::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  position: absolute;
+}
+
+.target::before {
+  border-left: solid 1px #2C2F48;
+  border-top: solid 1px #2C2F48;
+  top: 0;
+  left: 0;
+}
+
+.target::after {
+  border-right: solid 1px #2C2F48;
+  border-bottom: solid 1px #2C2F48;
+  bottom: 0;
+  right: 0;
+}
+
+.faq_container {
+  margin: 0 auto;
+  width: 100%;
+  padding: 45px 180px 0px 180px;
+  border: #2C2F48 solid 2px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.faq__btn {
+  margin-bottom: 0.4em;
+}
+
+.faq__item {
+  margin-bottom: 60px;
+}
+
+.faq {
+  background-image: linear-gradient(to bottom, #A6C1EE, #A5A6CF);
+  padding-top: 50px;
+}
+
+.faq h3 {
+  margin-bottom: 60px;
+}
+
+.cta {
+  background-image: linear-gradient(to bottom, #A5A6CF, #A391B7);
+
+  padding-block: 200px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta .container {
+  position: relative;
+  z-index: 0;
+}
+
+.cta .container::before {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 200px;
+  background-image: url(img/cloud/cloud02.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: -120px;
+  left: -60px;
+  z-index: -1;
+}
+
+.cta .container::after {
+  content: "";
+  position: absolute;
+  width: 570px;
+  height: 220px;
+  background-image: url(img/cloud/cloud01.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: -120px;
+  right: -170px;
+  z-index: -1;
+}
+
+.cta h3 {
+  margin-bottom: 60px;
+}
+
+footer p {
+  text-align: right;
+}
+
+footer {
+  background-image: linear-gradient(to bottom, #A391B7, #A38FB5);
+  padding-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 20px 40px;
+  border: #FFF solid 1px;
+  border-radius: 50px;
+  transition: 0.3s;
+  color: #FFF;
+}
+
+.hero_cta {
+  text-align: center;
+  width: fit-content;
+  padding-left: 20px;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #8C7AA1;
+  font-weight: bold;
+}
+
+/* style.cssの末尾など、適切な位置に追加 */
+
+/* トップに戻るボタンのスタイル */
+.to-top {
+  /* 画面右下に固定 */
+  position: fixed;
+  bottom: 30px;
+  /* 下から30px */
+  right: 30px;
+  /* 右から30px */
+
+  /* 初期状態では非表示 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+
+  /* ボタンの見た目 */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #8C7AA1;
+  /* メインカラーに合わせて調整 */
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  /* テキストを垂直方向に中央揃え */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  /* 他の要素より手前に表示 */
+}
+
+/* ボタンの中のリンクのスタイル */
+.to-top a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+}
+
+/* ボタンが表示される状態 */
+.to-top.is-show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+@media(max-width: 1140px) {
+
+  .products article:nth-of-type(1) .feature_text {
+    padding-left: 30px;
+  }
+
+  .products article:nth-of-type(3) .feature_text {
+    padding-left: 30px;
+  }
+
+  .products article:nth-of-type(2) .feature_text {
+    padding-right: 30px;
+  }
+
+  .cards {
+    gap: 10px;
+  }
+
+}
+
+@media screen and (max-width: 1040px) {
+
+  h1,
+  .sec_title,
+  .number {
+    /* clamp(最小サイズ, 流動的な値, 最大サイズ) */
+    font-size: clamp(2rem, 1.436rem + 2.41vw, 3rem);
+  }
+
+  h2 {
+    /* 最小: 1.25rem, 最大: 2rem */
+    font-size: clamp(1.5rem, 1.218rem + 1.2vw, 2rem);
+  }
+
+  h3 {
+    /* 最小: 1.2rem, 最大: 1.5rem */
+    font-size: clamp(1.25rem, 1.109rem + 0.6vw, 1.5rem);
+    text-align: center;
+    /* 既存のスタイルを維持 */
+  }
+
+  h4,
+  .faq__btn,
+  .btn {
+    /* 最小: 1.125rem, 最大: 1.25rem */
+    font-size: clamp(1rem, 0.859rem + 0.6vw, 1.25rem);
+  }
+
+  p {
+    /* 最小: 0.875rem, 最大: 1rem */
+    font-size: clamp(0.875rem, 0.805rem + 0.3vw, 1rem);
+  }
+
+  main .hero {
+    /*
+        1枚目を 01_tab.svg に変更し、2枚目 (firstview.jpg) はそのまま維持します。
+        複数の背景画像を使用している場合、変更がない画像も含めて全て記述が必要です。
+        */
+    background-image: url(img/cosme_svg/01_tab.svg), url(img/firstview_tab.jpg);
+
+    /*
+        必要に応じて、背景画像の位置やサイズの調整を行うこともできます。
+        もし変更が不要であれば、以下の行は省略可能です。
+        */
+    background-position: bottom center, right 80%;
+    background-size: auto, cover;
+  }
+}
+
+@media screen and (max-width: 961px) {
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .hero_text {
+    padding-left: 30px;
+  }
+
+  .feature_content,
+  .products article:nth-child(odd) .feature_content,
+  .features .feature_content {
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+  .feature_text,
+  .number,
+  .feature_title,
+  .feature_desc,
+  .feature__media,
+  .feature_content {
+    width: fit-content;
+  }
+
+  .feature__media img {
+    max-width: 400px;
+    padding-top: 20px;
+  }
+
+  .products article:nth-of-type(1) .feature_text,
+  .products article:nth-of-type(2) .feature_text,
+  .products article:nth-of-type(3) .feature_text,
+  .products article:nth-of-type(2) .feature_text,
+  .features .feature_text {
+    padding-left: 0px;
+    padding-right: 0;
+  }
+
+  .products article:nth-of-type(1) .feature_text::before {
+    height: 140px;
+    width: 390px;
+    background-image: url(img/cloud/cloud01.png);
+    bottom: -70px;
+    left: -210px;
+  }
+
+  .products article:nth-of-type(2) .feature_text::before {
+    height: 160px;
+    width: 370px;
+    background-image: url(img/cloud/cloud02.png);
+    bottom: -60px;
+    right: -130px;
+  }
+
+  .card_bg .number {
+    margin: 0 auto;
+  }
+
+  .targets .cards {
+
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    padding-block: 40px 100px;
+  }
+
+
+  .targets .target {
+
+    width: 50%;
+    max-width: 265px;
+  }
+
+  .usage .cards {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;
+  }
+
+  .usage .cards .card {
+    width: 32%;
+    max-width: 265px;
+  }
+
+  .faq_container {
+    padding-inline: 50px;
+  }
+
+  .review:nth-of-type(1) {
+    background-image: url(img/comment/comment1.png);
+    width: 500px;
+    height: 260px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 120px 150px 0 110px;
+  }
+
+  .review:nth-of-type(2) {
+    background-image: url(img/comment/comment02.png);
+    width: 520px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 130px 0 0 160px;
+    position: relative;
+  }
+
+  .review:nth-of-type(3) {
+    background-image: url(img/comment/comment03.png);
+    width: 460px;
+    height: 230px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 120px 0 0 110px;
+  }
+
+  .reviews .container::after {
+    bottom: -60px;
+  }
+
+  .reviews h3 {
+    margin-bottom: 60px;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+
+
+  .usage .cards {
+    row-gap: 20px;
+  }
+
+  .usage .cards .card {
+    width: 100%;
+  }
+
+  .hero_text,
+  .hero_cta {
+    padding-left: 0px;
+  }
+
+  main .concept {
+    padding-block: 50px 180px;
+  }
+
+  .mb70,
+  .usage h3,
+  .reviews h3 {
+    margin-bottom: 40px;
+  }
+
+  main .products .feature {
+    padding-bottom: 80px;
+  }
+
+  .products {
+    padding-bottom: 60px;
+  }
+
+  .usage,
+  .reviews,
+  .features,
+  .features .feature_content,
+  .targets {
+    padding-top: 40px;
+  }
+
+
+  .usage .cards,
+  .features .feature_content {
+    padding-bottom: 120px;
+  }
+
+  .reviews {
+    padding-bottom: 240px;
+  }
+
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+
+main .hero {
+  height: 100vh;
+  background-image: url(img/cosme_svg/01_tab.svg), url(img/firstview_sp.jpg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom center,bottom center;
+  background-size: auto, cover;
+  color: white;
+  padding-top: 30px;
+}
+
+  .hero_text {
+    text-align: center;
+  }
+
+  .hero_cta {
+    margin: 0 auto;
+  }
+
+  main .hero .icon {
+    margin-bottom: 50px;
+  }
+
+
+.hero_lead {
+    padding-bottom: 30px;
+}
+
+    .feature__media img {
+        max-width: 330px;
+    }
+
+    .products article:nth-of-type(1) .feature_text::before {
+        height: 120px;
+        width: 330px;
+        bottom: -50px;
+        left: -80px;
+    }
+.products article:nth-of-type(3) .feature_text::before {
+    height: 100px;
+    width: 140px;
+    bottom: -50px;
+    left: -20px;
+}
+        .products article:nth-of-type(2) .feature_text::before {
+        height: 180px;
+        width: 290px;
+        bottom: -80px;
+        right: -40px;
+    }
+
+        .review:nth-of-type(1) {
+        width: 350px;
+        height: 200px;
+        padding: 90px 40px 0 50px;
+    }
+    .review:nth-of-type(2) {
+        width: 360px;
+        height: 220px;
+        padding: 90px 0 0 80px;
+    }
+
+        .review:nth-of-type(3) {
+        width: 320px;
+        height: 210px;
+        padding: 80px 0 0 80px;
+    }
+
+.review:nth-of-type(2)::before {
+    width: 140px;
+    height: 80px;
+    top: -90px;
+    left: 220px;
+}
+
+.reviews .container::before {
+    width: 230px;
+    height: 70px;
+    top: 530px;
+    left: -20px;
+}
+
+.reviews .container::after {
+    width: 290px;
+    height: 100px;
+}
+
+    .reviews {
+        padding-bottom: 180px;
+    }
+
+    .targets .target {
+        width: 80%;
+        max-width: 335px;
+    }
+
+    .cta .container::before {
+    width: 290px;
+    height: 110px;
+    left: -50px;
+}
+
+.cta h3 {
+    margin-bottom: 30px;
+}
+
+.cta .container::after {
+    width: 390px;
+    height: 130px;
+    bottom: -140px;
+    right: -120px;
+}
+
+}
+
+@media screen and (max-width: 450px) {
+
+  .sp_br {
+    display: inline;
+  }
+
+.pc_br{
+  display: none;
+}
+
+
+}
+
+
+/* ============================================ */
+/* 🚀 スクロールアニメーション用のCSS */
+/* ============================================ */
+
+/* 1. アニメーションの初期状態（非表示・下方にずらす） */
+/* スクロールでアニメーションさせたいすべての要素に適用 */
+.animate-target {
+   opacity: 0;
+transform: translateY(30px); /* 30px下にずらす */
+transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* 0.8秒かけてアニメーション */
+will-change: opacity, transform; /* パフォーマンス最適化 */
+}
+
+/* 2. アニメーションの終了状態（表示・元の位置に戻す） */
+/* JavaScriptで画面内に入ったらこのクラスを付与する */
+.animate-target.is-active {
+opacity: 1;
+transform: translateY(0); /* 元の位置に戻る */
+}
+
+/* 補足: .review の擬似要素の重なり問題を解決するため、念のため .review に z-index: 1 を明示します（HTMLの要素は親の z-index が 1 なので、子要素の z-index: auto や 1 はその上に描画されます） */
+/* .review {
+position: relative;
+z-index: index 1;
+} */
