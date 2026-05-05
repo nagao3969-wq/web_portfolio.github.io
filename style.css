@@ -425,6 +425,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 20px; /* 画像間の余白 */
+    margin-top: 20px;
 }
 
 .square-grid .img {
