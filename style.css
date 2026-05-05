@@ -420,6 +420,23 @@ footer {
     padding-block: 10px;
 }
 
+/* 正方形バナー専用のグリッド設定 */
+.square-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* 画像間の余白 */
+}
+
+.square-grid .img {
+    /* PC・タブレット（767px以上）：3列 */
+    width: calc((100% - 40px) / 3);
+}
+
+.square-grid .img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 @media screen and (max-width:1200px) {
 
 
@@ -581,4 +598,12 @@ footer {
     margin-top: 5px;
     width: 100%;
 }
+}
+
+/* レスポンシブ：766px以下の設定 */
+@media screen and (max-width: 766px) {
+    .square-grid .img {
+        /* スマホ等：2列 */
+        width: calc((100% - 20px) / 2);
+    }
 }
